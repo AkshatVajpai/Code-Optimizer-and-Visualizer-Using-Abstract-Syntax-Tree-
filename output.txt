@@ -1,0 +1,72 @@
+Original AST:
+FUNCTION_DEF (main)
+  SEQUENCE
+    SEQUENCE
+      SEQUENCE
+        SEQUENCE
+          SEQUENCE
+            SEQUENCE
+              DECLARATION (a)
+                BINARY_EXPR (*)
+                  INT (5)
+                  INT (3)
+              DECLARATION (b)
+                INT (10)
+            DECLARATION (c)
+              INT (0)
+          IF_STMT
+            INT (0)
+            FUNCTION_CALL (printf)
+              EXPR_LIST
+                STRING (This will never be printed.\n)
+        DECLARATION (d)
+          BINARY_EXPR (+)
+            VAR (a)
+            BINARY_EXPR (*)
+              INT (2)
+              INT (4)
+      FOR_STMT
+        DECLARATION (i)
+          INT (0)
+        BINARY_EXPR (<)
+          VAR (i)
+          INT (3)
+        UNARY_EXPR (++)
+          VAR (i)
+        FUNCTION_CALL (printf)
+          EXPR_LIST
+            STRING (Hello\n)
+    RETURN_STMT
+      INT (0)
+
+Optimized AST:
+FUNCTION_DEF (main)
+  SEQUENCE
+    SEQUENCE
+      SEQUENCE
+        SEQUENCE
+          SEQUENCE
+            SEQUENCE
+              DECLARATION (a)
+                INT (15)
+              DECLARATION (b)
+                INT (10)
+            DECLARATION (c)
+              INT (0)
+        DECLARATION (d)
+          BINARY_EXPR (+)
+            VAR (a)
+            INT (8)
+      SEQUENCE
+        SEQUENCE
+          FUNCTION_CALL (printf)
+            EXPR_LIST
+              STRING (Hello\n)
+          FUNCTION_CALL (printf)
+            EXPR_LIST
+              STRING (Hello\n)
+        FUNCTION_CALL (printf)
+          EXPR_LIST
+            STRING (Hello\n)
+    RETURN_STMT
+      INT (0)
