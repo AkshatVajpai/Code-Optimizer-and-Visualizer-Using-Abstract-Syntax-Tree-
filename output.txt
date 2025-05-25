@@ -6,36 +6,78 @@ FUNCTION_DEF (main)
         SEQUENCE
           SEQUENCE
             SEQUENCE
-              DECLARATION (a)
-                BINARY_EXPR (*)
+              SEQUENCE
+                SEQUENCE
+                  SEQUENCE
+                    SEQUENCE
+                      SEQUENCE
+                        DECLARATION (a)
+                          BINARY_EXPR (*)
+                            INT (5)
+                            INT (3)
+                        DECLARATION (b)
+                          INT (10)
+                      DECLARATION (c)
+                        INT (1)
+                    DECLARATION (p)
+                      BINARY_EXPR (+)
+                        BINARY_EXPR (+)
+                          VAR (a)
+                          VAR (b)
+                        VAR (c)
+                  IF_STMT
+                    INT (0)
+                    FUNCTION_CALL (printf)
+                      EXPR_LIST
+                        STRING (Never Visited\n)
+                DECLARATION (x)
+                  BINARY_EXPR (+)
+                    BINARY_EXPR (+)
+                      INT (10)
+                      VAR (p)
+                    BINARY_EXPR (*)
+                      INT (9)
+                      INT (7)
+              FOR_STMT
+                DECLARATION (i)
+                  INT (0)
+                BINARY_EXPR (<)
+                  VAR (i)
                   INT (5)
-                  INT (3)
-              DECLARATION (b)
-                INT (10)
-            DECLARATION (c)
-              INT (0)
-          IF_STMT
+                UNARY_EXPR (++)
+                  VAR (i)
+                FUNCTION_CALL (printf)
+                  EXPR_LIST
+                    STRING (loop unrolling)
+            IF_STMT
+              INT (1)
+              FUNCTION_CALL (printf)
+                EXPR_LIST
+                  STRING (Visited once.\n)
+          DECLARATION (d)
+            BINARY_EXPR (+)
+              VAR (a)
+              BINARY_EXPR (*)
+                INT (2)
+                INT (4)
+        FOR_STMT
+          DECLARATION (i)
             INT (0)
-            FUNCTION_CALL (printf)
-              EXPR_LIST
-                STRING (This will never be printed.\n)
-        DECLARATION (d)
+          BINARY_EXPR (<)
+            VAR (i)
+            INT (3)
+          UNARY_EXPR (++)
+            VAR (i)
+          FUNCTION_CALL (printf)
+            EXPR_LIST
+              STRING (I am Lucky boy\n)
+      FUNCTION_CALL (printf)
+        EXPR_LIST
           BINARY_EXPR (+)
             VAR (a)
-            BINARY_EXPR (*)
-              INT (2)
-              INT (4)
-      FOR_STMT
-        DECLARATION (i)
-          INT (0)
-        BINARY_EXPR (<)
-          VAR (i)
-          INT (3)
-        UNARY_EXPR (++)
-          VAR (i)
-        FUNCTION_CALL (printf)
-          EXPR_LIST
-            STRING (Hello\n)
+            VAR (b)
+        EXPR_LIST
+          STRING (result : %d)
     RETURN_STMT
       INT (0)
 
@@ -47,26 +89,72 @@ FUNCTION_DEF (main)
         SEQUENCE
           SEQUENCE
             SEQUENCE
-              DECLARATION (a)
-                INT (15)
-              DECLARATION (b)
-                INT (10)
-            DECLARATION (c)
-              INT (0)
-        DECLARATION (d)
+              SEQUENCE
+                SEQUENCE
+                  SEQUENCE
+                    SEQUENCE
+                      SEQUENCE
+                        DECLARATION (a)
+                          INT (15)
+                        DECLARATION (b)
+                          INT (10)
+                      DECLARATION (c)
+                        INT (1)
+                    DECLARATION (p)
+                      BINARY_EXPR (+)
+                        BINARY_EXPR (+)
+                          VAR (a)
+                          VAR (b)
+                        VAR (c)
+                DECLARATION (x)
+                  BINARY_EXPR (+)
+                    BINARY_EXPR (+)
+                      INT (10)
+                      VAR (p)
+                    INT (63)
+              SEQUENCE
+                SEQUENCE
+                  SEQUENCE
+                    SEQUENCE
+                      FUNCTION_CALL (printf)
+                        EXPR_LIST
+                          STRING (loop unrolling)
+                      FUNCTION_CALL (printf)
+                        EXPR_LIST
+                          STRING (loop unrolling)
+                    FUNCTION_CALL (printf)
+                      EXPR_LIST
+                        STRING (loop unrolling)
+                  FUNCTION_CALL (printf)
+                    EXPR_LIST
+                      STRING (loop unrolling)
+                FUNCTION_CALL (printf)
+                  EXPR_LIST
+                    STRING (loop unrolling)
+            FUNCTION_CALL (printf)
+              EXPR_LIST
+                STRING (Visited once.\n)
+          DECLARATION (d)
+            BINARY_EXPR (+)
+              VAR (a)
+              INT (8)
+        SEQUENCE
+          SEQUENCE
+            FUNCTION_CALL (printf)
+              EXPR_LIST
+                STRING (I am Lucky boy\n)
+            FUNCTION_CALL (printf)
+              EXPR_LIST
+                STRING (I am Lucky boy\n)
+          FUNCTION_CALL (printf)
+            EXPR_LIST
+              STRING (I am Lucky boy\n)
+      FUNCTION_CALL (printf)
+        EXPR_LIST
           BINARY_EXPR (+)
             VAR (a)
-            INT (8)
-      SEQUENCE
-        SEQUENCE
-          FUNCTION_CALL (printf)
-            EXPR_LIST
-              STRING (Hello\n)
-          FUNCTION_CALL (printf)
-            EXPR_LIST
-              STRING (Hello\n)
-        FUNCTION_CALL (printf)
-          EXPR_LIST
-            STRING (Hello\n)
+            VAR (b)
+        EXPR_LIST
+          STRING (result : %d)
     RETURN_STMT
       INT (0)
