@@ -102,9 +102,17 @@ Feel free to submit issues and enhancement requests!
 
 ## License
 
+<<<<<<< HEAD
 This project is open source and available under the MIT License.
+=======
+This project is open source .
+>>>>>>> 2a79376828a106b071132788680936e5b96ffbe3
 
 ## Author
 
 Akshat Vajpai
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2a79376828a106b071132788680936e5b96ffbe3
 
