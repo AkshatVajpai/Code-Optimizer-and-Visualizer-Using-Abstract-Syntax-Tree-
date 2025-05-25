@@ -27,7 +27,7 @@ FUNCTION_DEF (main)
                         VAR (c)
                   IF_STMT
                     INT (0)
-                    FUNCTION_CALL (printf)
+                    FUNCTION_CALL ()
                       EXPR_LIST
                         STRING (Never Visited\n)
                 DECLARATION (x)
@@ -46,12 +46,12 @@ FUNCTION_DEF (main)
                   INT (5)
                 UNARY_EXPR (++)
                   VAR (i)
-                FUNCTION_CALL (printf)
+                FUNCTION_CALL (i)
                   EXPR_LIST
                     STRING (loop unrolling)
             IF_STMT
               INT (1)
-              FUNCTION_CALL (printf)
+              FUNCTION_CALL ()
                 EXPR_LIST
                   STRING (Visited once.\n)
           DECLARATION (d)
@@ -68,10 +68,10 @@ FUNCTION_DEF (main)
             INT (3)
           UNARY_EXPR (++)
             VAR (i)
-          FUNCTION_CALL (printf)
+          FUNCTION_CALL (i)
             EXPR_LIST
               STRING (I am Lucky boy\n)
-      FUNCTION_CALL (printf)
+      FUNCTION_CALL (I am Lucky boy\n)
         EXPR_LIST
           BINARY_EXPR (+)
             VAR (a)
@@ -116,22 +116,22 @@ FUNCTION_DEF (main)
                 SEQUENCE
                   SEQUENCE
                     SEQUENCE
-                      FUNCTION_CALL (printf)
+                      FUNCTION_CALL (i)
                         EXPR_LIST
                           STRING (loop unrolling)
-                      FUNCTION_CALL (printf)
+                      FUNCTION_CALL (i)
                         EXPR_LIST
                           STRING (loop unrolling)
-                    FUNCTION_CALL (printf)
+                    FUNCTION_CALL (i)
                       EXPR_LIST
                         STRING (loop unrolling)
-                  FUNCTION_CALL (printf)
+                  FUNCTION_CALL (i)
                     EXPR_LIST
                       STRING (loop unrolling)
-                FUNCTION_CALL (printf)
+                FUNCTION_CALL (i)
                   EXPR_LIST
                     STRING (loop unrolling)
-            FUNCTION_CALL (printf)
+            FUNCTION_CALL ()
               EXPR_LIST
                 STRING (Visited once.\n)
           DECLARATION (d)
@@ -140,16 +140,16 @@ FUNCTION_DEF (main)
               INT (8)
         SEQUENCE
           SEQUENCE
-            FUNCTION_CALL (printf)
+            FUNCTION_CALL (i)
               EXPR_LIST
                 STRING (I am Lucky boy\n)
-            FUNCTION_CALL (printf)
+            FUNCTION_CALL (i)
               EXPR_LIST
                 STRING (I am Lucky boy\n)
-          FUNCTION_CALL (printf)
+          FUNCTION_CALL (i)
             EXPR_LIST
               STRING (I am Lucky boy\n)
-      FUNCTION_CALL (printf)
+      FUNCTION_CALL (I am Lucky boy\n)
         EXPR_LIST
           BINARY_EXPR (+)
             VAR (a)

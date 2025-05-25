@@ -5,13 +5,20 @@ extern int yyparse();
 extern FILE* yyin;              
 extern ASTNode* ast_root;
 
-int main() {
-    // Open input file
-    yyin = fopen("input.c", "r");   
-    if (!yyin) {
-        perror("input.c");
+int main(int argc, char *argv[]) {
+    printf("[DEBUG] Program started.\n");
+    if (argc != 2) {
+        printf("Usage: %s <input_file>\n", argv[0]);
         return 1;
     }
+
+    // Open input file
+    yyin = fopen(argv[1], "r");   
+    if (!yyin) {
+        perror(argv[1]);
+        return 1;
+    }
+    printf("[DEBUG] Opened input file: %s\n", argv[1]);
 
     // Open output file for AST
     FILE* out = fopen("output.txt", "w");

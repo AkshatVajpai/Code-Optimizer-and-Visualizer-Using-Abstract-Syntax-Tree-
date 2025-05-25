@@ -6,6 +6,6 @@ int main() {
     int c = 1;
     int p = ((a + b) + c);
     int x = ((10 + p) + 63);
-                    printf("loop unrolling")    printf("loop unrolling")    printf("loop unrolling")    printf("loop unrolling")    printf("loop unrolling")    printf("Visited once.\n")    int d = (a + 8);
-            printf("I am Lucky boy\n")    printf("I am Lucky boy\n")    printf("I am Lucky boy\n")    printf((a + b), "result : %d")    return 0;
+                    i("loop unrolling")    i("loop unrolling")    i("loop unrolling")    i("loop unrolling")    i("loop unrolling")    ("Visited once.\n")    int d = (a + 8);
+            i("I am Lucky boy\n")    i("I am Lucky boy\n")    i("I am Lucky boy\n")    I am Lucky boy\n((a + b), "result : %d")    return 0;
 }

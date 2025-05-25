@@ -11,16 +11,18 @@ extern int yylineno;
 
 %%
 
-[ \t]                   ; /* ignore whitespace */
+[ \t\r]                 ; /* ignore whitespace and carriage returns */
 \n                      ; /* ignore newlines */
 "//".*\n               ; /* ignore single line comments */
 "/*"([^*]|"*"+[^*/])*"*"+"/"  ; /* ignore multi-line comments */
+^#.*\n                 ; /* ignore preprocessor directives */
 
-"int"                   { return KW_INT; }
-"if"                    { return KW_IF; }
-"else"                  { return KW_ELSE; }
-"for"                   { return KW_FOR; }
-"return"                { return KW_RETURN; }
+"int"                   { printf("[LEX] Found int keyword\n"); return KW_INT; }
+"if"                    { printf("[LEX] Found if keyword\n"); return KW_IF; }
+"else"                  { printf("[LEX] Found else keyword\n"); return KW_ELSE; }
+"for"                   { printf("[LEX] Found for keyword\n"); return KW_FOR; }
+"return"                { printf("[LEX] Found return keyword\n"); return KW_RETURN; }
+"printf"                { printf("[LEX] Found printf identifier\n"); return IDENTIFIER; }
 
 "=="                    { return EQ; }
 "!="                    { return NE; }
@@ -48,9 +50,10 @@ extern int yylineno;
 "{"                     { return LBRACE; }
 "}"                     { return RBRACE; }
 
-[0-9]+                  { yylval.ival = atoi(yytext); return NUMBER; }
-[a-zA-Z_][a-zA-Z0-9_]*  { yylval.str = strdup(yytext); return IDENTIFIER; }
+[0-9]+                  { printf("[LEX] Found number: %s\n", yytext); yylval.ival = atoi(yytext); return NUMBER; }
+[a-zA-Z_][a-zA-Z0-9_]*  { printf("[LEX] Found identifier: %s\n", yytext); yylval.str = strdup(yytext); return IDENTIFIER; }
 \"([^\\\"]|\\.)*\"      { 
+                          printf("[LEX] Found string: %s\n", yytext);
                           yylval.str = strdup(yytext);
                           // Remove quotes
                           yylval.str[strlen(yylval.str)-1] = '\0';
@@ -59,8 +62,8 @@ extern int yylineno;
                         }
 
 .                       { 
-                          fprintf(stderr, "Lexical error: unexpected character '%s' at line %d\n", 
-                                 yytext, yylineno);
+                          fprintf(stderr, "Lexical error: unexpected character '%s' (ASCII: %d) at line %d\n", 
+                                 yytext, yytext[0], yylineno);
                           return yytext[0]; 
                         }
 
